@@ -58,7 +58,7 @@ class _AzkarScreenState extends State<AzkarScreen> {
     PopupMenuDivider(),
 
               PopupMenuItem(child: Text('الحمدلله'),
-                 value: 'الجمدلله',
+                 value: 'الحمدلله',
                 height: 30,
              ),
               PopupMenuDivider(),
