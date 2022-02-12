@@ -10,9 +10,18 @@ class AzkarScreen extends StatefulWidget {
 }
 
 class _AzkarScreenState extends State<AzkarScreen> {
+  int _counter=0;
+  String _content='أستغفر الله';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(onPressed: (){
+        setState(() {
+          ++_counter;
+        });
+      },
+        child: Icon(Icons.add),
+      ),
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -29,19 +38,44 @@ class _AzkarScreenState extends State<AzkarScreen> {
             );
           }, icon: Icon(Icons.info)
           ),
-          IconButton(
-            onPressed: (){
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => AboutAppScreen(message: 'About App',),));
 
-
+          PopupMenuButton<String>(
+            onSelected: (value){
+              if(_content!= value){
+                setState(() {
+                  _content=value;
+                  _counter=0;
+                });
+              }
             },
-              icon: Icon(Icons.question_answer),
-          )
+              itemBuilder: (context){
+            return[
+              PopupMenuItem(
+                child: Text('أستغفر الله'),
+                value: 'أستغفر الله',
+                height: 30,
+              ),
+    PopupMenuDivider(),
 
-        ],
+              PopupMenuItem(child: Text('الحمدلله'),
+                 value: 'الجمدلله',
+                height: 30,
+             ),
+              PopupMenuDivider(),
+              PopupMenuItem(child: Text('سبحان الله'),
+                  value: 'سبحان الله',
+                height: 30,
+             ),
+            ];
+          }
+          ),
 
-      ),
+],
+
+          ),
+         
+
+
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -51,6 +85,7 @@ class _AzkarScreenState extends State<AzkarScreen> {
             ]
           )
         ),
+        padding: EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -58,19 +93,24 @@ class _AzkarScreenState extends State<AzkarScreen> {
               width: 60,
               height: 60,
               decoration: const BoxDecoration(
-                color: Colors.blue,
+                color: Colors.white,
                 shape: BoxShape.circle,
 
+
               ),
+              margin: const EdgeInsetsDirectional.only(bottom: 20),
             ),
             Card(
+              margin: const EdgeInsetsDirectional.only(bottom: 20),
+              elevation: 4,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(15),
               ),
               clipBehavior: Clip.antiAlias,
               child: Row(
                 children: [
-                          Expanded(child: Text('أستغفر الله',
+                           Expanded(child:
+                          Text(_content,
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               color: Colors.black,
@@ -86,8 +126,8 @@ class _AzkarScreenState extends State<AzkarScreen> {
                     alignment: Alignment.center,
 
                     child: Text(
-                      '0',
-                      style: TextStyle(
+                      _counter.toString(),
+                      style: const TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
@@ -99,7 +139,48 @@ class _AzkarScreenState extends State<AzkarScreen> {
 
                         ],
                       ),
-            )],
+            ),
+          Row(
+            children: [
+              Expanded(
+                flex: 2,
+                child: ElevatedButton(
+                 onPressed: (){
+                   setState(() {
+                     ++_counter;
+                   });
+                   print('Counter: $_counter');
+                 },
+                child: Text('تسبيح'),
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.blue.shade600,
+                    minimumSize: const Size(0,45),
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadiusDirectional.only(topStart: Radius.circular(10)),
+                    )
+                  ),
+              ),
+              ),
+              Expanded(child: ElevatedButton(
+                onPressed: (){
+                  setState(() {
+                    _counter=0;
+                  });
+                },
+                child: const Text('اعادة'),
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.teal.shade300,
+                  minimumSize: const Size(0, 45),
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadiusDirectional.only(bottomEnd: Radius.circular(10))
+                  )
+                ),
+
+              ),
+              ),
+            ],
+          ),
+        ],
                   ),
 
               ),
