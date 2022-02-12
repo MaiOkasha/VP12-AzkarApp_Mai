@@ -20,7 +20,7 @@ class _AzkarScreenState extends State<AzkarScreen> {
           ++_counter;
         });
       },
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -36,7 +36,7 @@ class _AzkarScreenState extends State<AzkarScreen> {
              'message' : 'Info Screen',
             },
             );
-          }, icon: Icon(Icons.info)
+          }, icon: const Icon(Icons.info)
           ),
 
           PopupMenuButton<String>(
@@ -50,19 +50,19 @@ class _AzkarScreenState extends State<AzkarScreen> {
             },
               itemBuilder: (context){
             return[
-              PopupMenuItem(
+              const PopupMenuItem(
                 child: Text('أستغفر الله'),
                 value: 'أستغفر الله',
                 height: 30,
               ),
-    PopupMenuDivider(),
+    const PopupMenuDivider(),
 
-              PopupMenuItem(child: Text('الحمدلله'),
+              const PopupMenuItem(child: Text('الحمدلله'),
                  value: 'الحمدلله',
                 height: 30,
              ),
-              PopupMenuDivider(),
-              PopupMenuItem(child: Text('سبحان الله'),
+              const PopupMenuDivider(),
+              const PopupMenuItem(child: const Text('سبحان الله'),
                   value: 'سبحان الله',
                 height: 30,
              ),
@@ -85,7 +85,7 @@ class _AzkarScreenState extends State<AzkarScreen> {
             ]
           )
         ),
-        padding: EdgeInsets.symmetric(horizontal: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -112,7 +112,7 @@ class _AzkarScreenState extends State<AzkarScreen> {
                            Expanded(child:
                           Text(_content,
                             textAlign: TextAlign.center,
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.bold,
                               fontSize: 26,
@@ -151,7 +151,7 @@ class _AzkarScreenState extends State<AzkarScreen> {
                    });
                    print('Counter: $_counter');
                  },
-                child: Text('تسبيح'),
+                child: const Text('تسبيح'),
                   style: ElevatedButton.styleFrom(
                     primary: Colors.blue.shade600,
                     minimumSize: const Size(0,45),
