@@ -1,15 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:vp12_azkar_app/screens/about_app_screen.dart';
 
-class AzkarScreen extends StatefulWidget {
-  const AzkarScreen({Key? key}) : super(key: key);
+
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
-  _AzkarScreenState createState() => _AzkarScreenState();
+  _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _AzkarScreenState extends State<AzkarScreen> {
+class _HomeScreenState extends State<HomeScreen> {
   int _counter=0;
   String _content='أستغفر الله';
   @override
@@ -31,10 +31,7 @@ class _AzkarScreenState extends State<AzkarScreen> {
         title: const Text('Azkar'),
         actions: [
           IconButton(onPressed: (){
-            Navigator.pushNamed(context, '/info_screen',
-                arguments: {
-             'message' : 'Info Screen',
-            },
+            Navigator.pushNamed(context, '/bio_screen',
             );
           }, icon: const Icon(Icons.info)
           ),
@@ -69,13 +66,8 @@ class _AzkarScreenState extends State<AzkarScreen> {
             ];
           }
           ),
-
 ],
-
           ),
-         
-
-
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -89,17 +81,11 @@ class _AzkarScreenState extends State<AzkarScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
-              width: 60,
-              height: 60,
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                shape: BoxShape.circle,
-
-
-              ),
-              margin: const EdgeInsetsDirectional.only(bottom: 20),
+            const CircleAvatar(
+              radius: 30,
+              backgroundImage: AssetImage('images/azkar.jpg'),
             ),
+            const SizedBox(height: 15,),
             Card(
               margin: const EdgeInsetsDirectional.only(bottom: 20),
               elevation: 4,
@@ -124,7 +110,6 @@ class _AzkarScreenState extends State<AzkarScreen> {
                     width: 60,
                     height: 60,
                     alignment: Alignment.center,
-
                     child: Text(
                       _counter.toString(),
                       style: const TextStyle(
@@ -134,9 +119,6 @@ class _AzkarScreenState extends State<AzkarScreen> {
                       ),
                     ),
                   ),
-
-
-
                         ],
                       ),
             ),
@@ -165,7 +147,8 @@ class _AzkarScreenState extends State<AzkarScreen> {
                 onPressed: (){
                   setState(() {
                     _counter=0;
-                  });
+                  }
+                  );
                 },
                 child: const Text('اعادة'),
                 style: ElevatedButton.styleFrom(
@@ -184,9 +167,6 @@ class _AzkarScreenState extends State<AzkarScreen> {
                   ),
 
               ),
-
     );
-
-
   }
 }

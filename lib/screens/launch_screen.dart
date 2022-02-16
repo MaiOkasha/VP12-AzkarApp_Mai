@@ -16,7 +16,7 @@ class _LaunchScreenState extends State<LaunchScreen> {
     super.initState();
     print('Ininte State');
     Future.delayed(const Duration(seconds: 3),(){
-     Navigator.pushReplacementNamed(context, '/azkar_screen');
+     Navigator.pushReplacementNamed(context, '/home_screen');
     });
   }
   @override
@@ -37,6 +37,7 @@ class _LaunchScreenState extends State<LaunchScreen> {
         ),
         child: const Text('Azkar App',
           style:TextStyle(
+            color: Colors.white,
               fontSize: 24,
               fontWeight: FontWeight.bold,
           ),
