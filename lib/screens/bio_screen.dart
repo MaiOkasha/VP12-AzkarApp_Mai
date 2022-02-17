@@ -51,10 +51,10 @@ class BioScreen extends StatelessWidget {
                child: ListTile(
                  leading:IconButton(onPressed: (){
                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                     content: const Text('Send Email'),
+                     content: const Text('أرسل البريد الالكتروني'),
                      duration: const Duration(seconds: 3),
                      backgroundColor: Colors.grey,
-                     action: SnackBarAction(label: 'Dismiss',
+                     action: SnackBarAction(label: 'تراجع',
                        onPressed: (){},
                        textColor: Colors.white,
                      ),
